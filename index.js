@@ -13,3 +13,19 @@ function FormatDay(date){
         (day<10 ? '0' : '') + day;
     return dayOutput;
 }
+
+init();
+
+function init(){
+    var storedCities = JSON.parse(localStorage.getItem("cities"));
+
+    if (storedCities !== null) {
+        cities = storedCities;
+      }
+    renderCities();
+}
+
+function storeCities(){
+  localStorage.setItem("cities", JSON.stringify(cities));
+  console.log(localStorage);
+}
